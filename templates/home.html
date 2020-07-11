@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ANPR</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body bgcolor="lavender">
+	<div id="menu-area">
+		<div class="logo">
+			<a href="/">
+				<img src="{{ url_for('static', filename='logonew.jpg') }}" alt="Logo">
+			</a>
+		</div>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/login">Get Car Details</a></li>
+<!--			<li><a href="/registering">Register</a></li>-->
+			<li><a href="/">Contact Me</a></li>
+		</ul>
+	</div>
+	<div class="banner-area">
+		<div class="banner-text">
+			<h2>Automatic Number Plate Recognition</h2>
+			<a href="/info">Learn More</a>
+		</div>
+	</div>
+	<hr>
+
+	<div class="main-content">
+		<div class="wrapper">
+			<h2>Brief Information</h2>
+			<br><br>
+			<p>
+				Number Plate recognition is the most efficient and cost-effective technique used for vehicle identification purposes.
+				Automatic license plate recognition (ANPR) is used for finding location of the number plate.
+				The detection of Number Plate varies based on conditions like, image quality, car at fixed positions, conditions of lights, single image etc. It should also be able to cope up with
+the variations in Number Plates from different Countries and States. This document proposes an automated system for Number Plate Detection and Gives Car Owner’s Information with help of
+an Image of Car. Proposed system consists of two steps: Number Plate detection and Character recognition. In Number Plate detection phase the Number plate is detected from the uploaded
+ image and then in second phase segmented plate is passed to Tesseract OCR (Optical Charachter Recognition) that determines the characters and numbers. The most significant phase is OCR,
+where the letters on the image of number plate are changed into the text. The concept of ANPR system is based on the matching of templates and result of this system is established with 70-80%
+Accuraccy for Indian number plates.
+			</p>
+
+		</div>
+	</div>
+
+	<script>
+		window.addEventListener("scroll", function(){
+			let menuArea = document.getElementById('menu-area');
+
+			if(window.pageYOffset > 0){
+				menuArea.classList.add("cus-nav");
+			}
+			else{
+				menuArea.classList.remove("cus-nav");
+			}
+		});
+	</script>
+
+</body>
+</html>

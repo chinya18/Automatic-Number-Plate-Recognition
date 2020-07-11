@@ -1,0 +1,29 @@
+REGISTER
+<body>
+		{% from "_formhelpers.html" import render_field %}
+
+		<h4>Registration Form</h4>
+		<form name="register" id="form_register" method="post" action="/registering">
+			<dl>
+				{{render_field(form.name)}}
+				{{render_field(form.username)}}
+				{{render_field(form.email)}}
+				{{render_field(form.password)}}
+				{{render_field(form.confirm)}}
+				{{render_field(form.address)}}
+				{{render_field(form.pincode)}}
+
+			</dl>
+			<div class="input_field">
+				<input type="submit" name="b1" value="Register" class="btn">
+			</div>
+
+			{% if error %}
+				<p class="error">Error:{{error}}</p>
+			{% endif %}
+
+		</form>
+
+
+
+</body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number plate Detection</title>
+ 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='upload.css') }}">
+
+</head>
+<body bgcolor="#86a6df">
+<h2 align="center">Car Image Upload</h2>
+<hr class="line">
+	<div class="wrapper">
+		<form action="{{ url_for('upload') }}" name="upload-form" method="POST", enctype="multipart/form-data">
+			<input type="file"  id="file_img" name="file" accept="image/*" multiple>
+			<div class="img_contents" id="img_preview">
+				<img src="" alt="Image Preview" class="preview_img">
+				<span class="show">Image Preview</span>
+			</div>
+
+
+				 <div class="btn">
+                     <input type="submit" name="b1" value="Upload">
+                </div>
+		</form>
+	</div>
+
+
+
+	<script type="text/javascript">
+		const img = document.getElementById("file_img");
+		const previewContainer = document.getElementById("img_preview");
+		const previewImage = previewContainer.querySelector(".preview_img");
+		const previewDefaultText = previewContainer.querySelector(".show");
+
+		img.addEventListener("change", function(){
+			const file = this.files[0];
+
+			if(file){
+				const reader = new FileReader();
+
+				previewDefaultText.style.display = "none";
+				previewImage.style.display = "block";
+
+
+				reader.addEventListener("load", function() {
+					previewImage.setAttribute("src", this.result);
+				});
+
+				reader.readAsDataURL(file);
+
+			}
+			else{
+				previewDefaultText.style.display = null;
+				previewImage.style.display = null;
+				previewImage.setAttribute("src", "");
+			}
+
+		});
+	</script>
+</body>
+</html>
